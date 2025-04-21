@@ -1,1 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOK STORE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); /* Library shelf image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Keeps the background fixed while scrolling */
+        }
+
+        header {
+            background: linear-gradient(135deg, #3E2B2B, #A0522D); /* Brown gradient */
+            color: beige;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: beige;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #FFD700; /* Gold hover color */
+        }
+
+        .blinking {
+         color: darkred; /* Changed from #8B0000 (dark red) to black */
+         font-weight: bold;
+         animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: rgba(245,245,220,0.6); /* Semi-transparent white background */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .category-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-card h3 {
+            font-size: 1.6rem;
+            color: #800000; /* Brown */
+            margin-bottom: 10px;
+        }
+
+        .category-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .countdown {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+
+        .countdown h2 {
+            font-size: 2rem;
+            color: #800000; /* Brown */
+            margin-bottom: 20px;
+        }
+
+        .timer {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #800000; /* Darker brown */
+        }
+
+        footer {
+            background-color: rgba(51, 51, 51, 0.9);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .category-card h3 {
+                font-size: 1.4rem;
+            }
+
+            .category-card p {
+                font-size: 0.9rem;
+            }
+
+            .timer {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .categories {
+                grid-template-columns: 1fr;
+            }
+
+            .category-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .category-card p {
+                font-size: 0.8rem;
+            }
+
+            .timer {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>BOOK STORE</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Shop</a>
+            <a href="#">Categories</a>
+            <a href="register.html" class="blinking">Register Now</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="categories">
+            <div class="category-card">
+                <h3>Fiction</h3>
+                <p>Explore a variety of fiction books from the classics to modern bestsellers.</p>
+            </div>
+            <div class="category-card">
+                <h3>Non-Fiction</h3>
+                <p>Delve into insightful non-fiction books on history, science, and more.</p>
+            </div>
+            <div class="category-card">
+                <h3>Science</h3>
+                <p>Enhance your knowledge with a collection of top science books and resources.</p>
+            </div>
+            <div class="category-card">
+                <h3>Fantasy</h3>
+                <p>Escape into mystical worlds with our best-selling fantasy books.</p>
+            </div>
+        </section>
+
+        <section class="countdown">
+            <h2>Library Annual Day Celebration</h2>
+            <p>Our big celebration is just around the corner! Don't miss it!</p>
+            <div id="timer" class="timer">Loading...</div>
+        </section>
+    </div>
+
+    
+
+    <script>
+        // Countdown Timer Functionality
+        function updateCountdown() {
+            const eventDate = new Date('April 30, 2025 12:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                document.getElementById("timer").innerHTML = "Event has started!";
+            }
+        }
+
+        // Update the countdown every second
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
 
